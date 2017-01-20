@@ -32,17 +32,17 @@ export default class Parent extends React.Component {
 
         Parent's conditional child, plain:
         {this.props.thing === 'A' ?
-          <ConditionalChild className="plain1" name="plain" thing={this.props.thing} /> :
-          <ConditionalChild className="plain2" name="plain" thing={this.props.thing} />
+          <ConditionalChild name="plain" thing={this.props.thing} /> :
+          <ConditionalChild name="plain" thing={this.props.thing} />
         }
 
         Parent's conditional child, alternating wrapper:
         {this.props.thing === 'A' ?
           <header>
-            <ConditionalChild name="wrapper" thing={this.props.thing} />
+            <ConditionalChild name="wrapped" thing={this.props.thing} />
           </header> :
           <footer>
-            <ConditionalChild name="wrapper" thing={this.props.thing} />
+            <ConditionalChild name="wrapped" thing={this.props.thing} />
           </footer>
         }
       </div>

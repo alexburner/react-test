@@ -29470,16 +29470,16 @@
 	        'Parent\'s simple child:',
 	        _react2.default.createElement(_simpleChild2.default, { thing: this.props.thing }),
 	        'Parent\'s conditional child, plain:',
-	        this.props.thing === 'A' ? _react2.default.createElement(_conditionalChild2.default, { className: 'plain1', name: 'plain', thing: this.props.thing }) : _react2.default.createElement(_conditionalChild2.default, { className: 'plain2', name: 'plain', thing: this.props.thing }),
+	        this.props.thing === 'A' ? _react2.default.createElement(_conditionalChild2.default, { name: 'plain', thing: this.props.thing }) : _react2.default.createElement(_conditionalChild2.default, { name: 'plain', thing: this.props.thing }),
 	        'Parent\'s conditional child, alternating wrapper:',
 	        this.props.thing === 'A' ? _react2.default.createElement(
 	          'header',
 	          null,
-	          _react2.default.createElement(_conditionalChild2.default, { name: 'wrapper', thing: this.props.thing })
+	          _react2.default.createElement(_conditionalChild2.default, { name: 'wrapped', thing: this.props.thing })
 	        ) : _react2.default.createElement(
 	          'footer',
 	          null,
-	          _react2.default.createElement(_conditionalChild2.default, { name: 'wrapper', thing: this.props.thing })
+	          _react2.default.createElement(_conditionalChild2.default, { name: 'wrapped', thing: this.props.thing })
 	        )
 	      );
 	    }
