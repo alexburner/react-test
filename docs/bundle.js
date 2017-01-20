@@ -78,10 +78,9 @@
 
 	    _classCallCheck(this, App);
 
-	    console.log('App - constructor()', arguments);
-
 	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
+	    console.log('App - constructor()', arguments);
 	    _this.state = {
 	      thing: 'A'
 	    };
@@ -29434,8 +29433,10 @@
 	  function Parent(props) {
 	    _classCallCheck(this, Parent);
 
+	    var _this = _possibleConstructorReturn(this, (Parent.__proto__ || Object.getPrototypeOf(Parent)).call(this, props));
+
 	    console.log('Parent - constructor()', arguments);
-	    return _possibleConstructorReturn(this, (Parent.__proto__ || Object.getPrototypeOf(Parent)).call(this, props));
+	    return _this;
 	  }
 
 	  _createClass(Parent, [{
@@ -29466,15 +29467,19 @@
 	          'Parent, thing = ',
 	          this.props.thing
 	        ),
+	        'Parent\'s simple child:',
 	        _react2.default.createElement(_simpleChild2.default, { thing: this.props.thing }),
+	        'Parent\'s conditional child, plain:',
+	        this.props.thing === 'A' ? _react2.default.createElement(_conditionalChild2.default, { className: 'plain1', name: 'plain', thing: this.props.thing }) : _react2.default.createElement(_conditionalChild2.default, { className: 'plain2', name: 'plain', thing: this.props.thing }),
+	        'Parent\'s conditional child, alternating wrapper:',
 	        this.props.thing === 'A' ? _react2.default.createElement(
 	          'header',
 	          null,
-	          _react2.default.createElement(_conditionalChild2.default, { thing: this.props.thing })
+	          _react2.default.createElement(_conditionalChild2.default, { name: 'wrapper', thing: this.props.thing })
 	        ) : _react2.default.createElement(
 	          'footer',
 	          null,
-	          _react2.default.createElement(_conditionalChild2.default, { thing: this.props.thing })
+	          _react2.default.createElement(_conditionalChild2.default, { name: 'wrapper', thing: this.props.thing })
 	        )
 	      );
 	    }
@@ -29524,7 +29529,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var rogueCount = 0;
+	var i = 0;
 
 	var ConditionalChild = function (_React$Component) {
 	  _inherits(ConditionalChild, _React$Component);
@@ -29532,34 +29537,38 @@
 	  function ConditionalChild(props) {
 	    _classCallCheck(this, ConditionalChild);
 
-	    console.log('ConditionalChild - constructor()', arguments);
-	    return _possibleConstructorReturn(this, (ConditionalChild.__proto__ || Object.getPrototypeOf(ConditionalChild)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (ConditionalChild.__proto__ || Object.getPrototypeOf(ConditionalChild)).call(this, props));
+
+	    console.log('ConditionalChild (' + _this.getName() + ') - constructor()', arguments, _this.element);
+	    return _this;
 	  }
 
 	  _createClass(ConditionalChild, [{
+	    key: 'getName',
+	    value: function getName() {
+	      return this.props && this.props.name ? this.props.name : '';
+	    }
+	  }, {
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
-	      console.log('ConditionalChild - componentWillMount()', arguments);
-	      console.log('ConditionalChild - this.element', this.element);
+	      console.log('ConditionalChild (' + this.getName() + ') - componentWillMount()', arguments, this.element);
 	    }
 	  }, {
 	    key: 'componentWillReceiveProps',
 	    value: function componentWillReceiveProps() {
-	      console.log('ConditionalChild - componentWillReceiveProps()', arguments);
-	      console.log('ConditionalChild - this.element', this.element);
+	      console.log('ConditionalChild (' + this.getName() + ') - componentWillReceiveProps()', arguments, this.element);
 	    }
 	  }, {
 	    key: 'componentWillUpdate',
 	    value: function componentWillUpdate() {
-	      console.log('ConditionalChild - componentWillUpdate()', arguments);
-	      console.log('ConditionalChild - this.element', this.element);
+	      console.log('ConditionalChild (' + this.getName() + ') - componentWillUpdate()', arguments, this.element);
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
 
-	      console.log('ConditionalChild - render()', arguments);
+	      console.log('ConditionalChild (' + this.getName() + ') - render()', arguments, this.element);
 	      return _react2.default.createElement(
 	        'div',
 	        { ref: function ref(div) {
@@ -29572,24 +29581,21 @@
 	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      console.log('ConditionalChild - componentDidMount()', arguments);
-	      console.log('ConditionalChild - this.element', this.element);
+	      console.log('ConditionalChild (' + this.getName() + ') - componentDidMount()', arguments, this.element);
 	      var div = document.createElement('div');
-	      var text = document.createTextNode('ConditionalChild rogue <div> ' + rogueCount++);
+	      var text = document.createTextNode('ConditionalChild rogue <div> ' + i++);
 	      div.appendChild(text);
 	      this.element.appendChild(div);
 	    }
 	  }, {
 	    key: 'componentDidUpdate',
 	    value: function componentDidUpdate() {
-	      console.log('ConditionalChild - componentDidUpdate()', arguments);
-	      console.log('ConditionalChild - this.element', this.element);
+	      console.log('ConditionalChild (' + this.getName() + ') - componentDidUpdate()', arguments, this.element);
 	    }
 	  }, {
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
-	      console.log('ConditionalChild - componentWillUnmount()', arguments);
-	      console.log('ConditionalChild - this.element', this.element);
+	      console.log('ConditionalChild (' + this.getName() + ') - componentWillUnmount()', arguments, this.element);
 	    }
 	  }]);
 
@@ -29622,7 +29628,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var rogueCount = 0;
+	var i = 0;
 
 	var SimpleChild = function (_React$Component) {
 	  _inherits(SimpleChild, _React$Component);
@@ -29630,34 +29636,33 @@
 	  function SimpleChild(props) {
 	    _classCallCheck(this, SimpleChild);
 
-	    console.log('SimpleChild - constructor()', arguments);
-	    return _possibleConstructorReturn(this, (SimpleChild.__proto__ || Object.getPrototypeOf(SimpleChild)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (SimpleChild.__proto__ || Object.getPrototypeOf(SimpleChild)).call(this, props));
+
+	    console.log('SimpleChild - constructor()', arguments, _this.element);
+	    return _this;
 	  }
 
 	  _createClass(SimpleChild, [{
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
-	      console.log('SimpleChild - componentWillMount()', arguments);
-	      console.log('SimpleChild - this.element', this.element);
+	      console.log('SimpleChild - componentWillMount()', arguments, this.element);
 	    }
 	  }, {
 	    key: 'componentWillReceiveProps',
 	    value: function componentWillReceiveProps() {
-	      console.log('SimpleChild - componentWillReceiveProps()', arguments);
-	      console.log('SimpleChild - this.element', this.element);
+	      console.log('SimpleChild - componentWillReceiveProps()', arguments, this.element);
 	    }
 	  }, {
 	    key: 'componentWillUpdate',
 	    value: function componentWillUpdate() {
-	      console.log('SimpleChild - componentWillUpdate()', arguments);
-	      console.log('SimpleChild - this.element', this.element);
+	      console.log('SimpleChild - componentWillUpdate()', arguments, this.element);
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
 
-	      console.log('SimpleChild - render()', arguments);
+	      console.log('SimpleChild - render()', arguments, this.element);
 	      return _react2.default.createElement(
 	        'div',
 	        { ref: function ref(div) {
@@ -29670,24 +29675,21 @@
 	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      console.log('SimpleChild - componentDidMount()', arguments);
-	      console.log('SimpleChild - this.element', this.element);
+	      console.log('SimpleChild - componentDidMount()', arguments, this.element);
 	      var div = document.createElement('div');
-	      var text = document.createTextNode('SimpleChild rogue <div> ' + rogueCount++);
+	      var text = document.createTextNode('SimpleChild rogue <div> ' + i++);
 	      div.appendChild(text);
 	      this.element.appendChild(div);
 	    }
 	  }, {
 	    key: 'componentDidUpdate',
 	    value: function componentDidUpdate() {
-	      console.log('SimpleChild - componentDidUpdate()', arguments);
-	      console.log('SimpleChild - this.element', this.element);
+	      console.log('SimpleChild - componentDidUpdate()', arguments, this.element);
 	    }
 	  }, {
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
-	      console.log('SimpleChild - componentWillUnmount()', arguments);
-	      console.log('SimpleChild - this.element', this.element);
+	      console.log('SimpleChild - componentWillUnmount()', arguments, this.element);
 	    }
 	  }]);
 

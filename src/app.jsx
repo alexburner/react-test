@@ -7,8 +7,8 @@ import Parent from 'parent.jsx';
 
 class App extends React.Component {
   constructor(props) {
-    console.log('App - constructor()', arguments);
     super(props);
+    console.log('App - constructor()', arguments);
     this.state = {
       thing: 'A',
     };

@@ -5,8 +5,8 @@ import SimpleChild from 'simple-child.jsx';
 
 export default class Parent extends React.Component {
   constructor(props) {
-    console.log('Parent - constructor()', arguments);
     super(props);
+    console.log('Parent - constructor()', arguments);
   }
 
   componentWillMount() {
@@ -26,13 +26,23 @@ export default class Parent extends React.Component {
     return (
       <div className={this.props.thing}>
         <h3>Parent, thing = {this.props.thing}</h3>
+
+        Parent's simple child:
         <SimpleChild thing={this.props.thing} />
+
+        Parent's conditional child, plain:
+        {this.props.thing === 'A' ?
+          <ConditionalChild className="plain1" name="plain" thing={this.props.thing} /> :
+          <ConditionalChild className="plain2" name="plain" thing={this.props.thing} />
+        }
+
+        Parent's conditional child, alternating wrapper:
         {this.props.thing === 'A' ?
           <header>
-            <ConditionalChild thing={this.props.thing} />
+            <ConditionalChild name="wrapper" thing={this.props.thing} />
           </header> :
           <footer>
-            <ConditionalChild thing={this.props.thing} />
+            <ConditionalChild name="wrapper" thing={this.props.thing} />
           </footer>
         }
       </div>

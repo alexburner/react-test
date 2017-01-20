@@ -1,30 +1,51 @@
 import React from 'react';
 
-let rogueCount = 0;
+let i = 0;
 
 export default class ConditionalChild extends React.Component {
   constructor(props) {
-    console.log('ConditionalChild - constructor()', arguments);
     super(props);
+    console.log(
+      'ConditionalChild (' + this.getName() + ') - constructor()',
+       arguments,
+       this.element
+    );
+  }
+
+  getName() {
+    return this.props && this.props.name ? this.props.name : '';
   }
 
   componentWillMount() {
-    console.log('ConditionalChild - componentWillMount()', arguments);
-    console.log('ConditionalChild - this.element', this.element);
+    console.log(
+      'ConditionalChild (' + this.getName() + ') - componentWillMount()',
+      arguments,
+      this.element
+    );
   }
 
   componentWillReceiveProps() {
-    console.log('ConditionalChild - componentWillReceiveProps()', arguments);
-    console.log('ConditionalChild - this.element', this.element);
+    console.log(
+      'ConditionalChild (' + this.getName() + ') - componentWillReceiveProps()',
+      arguments,
+      this.element
+    );
   }
 
   componentWillUpdate() {
-    console.log('ConditionalChild - componentWillUpdate()', arguments);
-    console.log('ConditionalChild - this.element', this.element);
+    console.log(
+      'ConditionalChild (' + this.getName() + ') - componentWillUpdate()',
+      arguments,
+      this.element
+    );
   }
 
   render() {
-    console.log('ConditionalChild - render()', arguments);
+    console.log(
+      'ConditionalChild (' + this.getName() + ') - render()',
+      arguments,
+      this.element
+    );
     return (
       <div ref={(div) => { this.element = div; }}>
         ConditionalChild, thing = {this.props.thing}
@@ -33,21 +54,30 @@ export default class ConditionalChild extends React.Component {
   }
 
   componentDidMount() {
-    console.log('ConditionalChild - componentDidMount()', arguments);
-    console.log('ConditionalChild - this.element', this.element);
+    console.log(
+      'ConditionalChild (' + this.getName() + ') - componentDidMount()',
+      arguments,
+      this.element
+    );
     const div = document.createElement('div');
-    const text = document.createTextNode('ConditionalChild rogue <div> ' + rogueCount++);
+    const text = document.createTextNode('ConditionalChild rogue <div> ' + i++);
     div.appendChild(text);
     this.element.appendChild(div);
   }
 
   componentDidUpdate() {
-    console.log('ConditionalChild - componentDidUpdate()', arguments);
-    console.log('ConditionalChild - this.element', this.element);
+    console.log(
+      'ConditionalChild (' + this.getName() + ') - componentDidUpdate()',
+      arguments,
+      this.element
+    );
   }
 
   componentWillUnmount() {
-    console.log('ConditionalChild - componentWillUnmount()', arguments);
-    console.log('ConditionalChild - this.element', this.element);
+    console.log(
+      'ConditionalChild (' + this.getName() + ') - componentWillUnmount()',
+      arguments,
+      this.element
+    );
   }
 }

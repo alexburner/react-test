@@ -1,30 +1,47 @@
 import React from 'react';
 
-let rogueCount = 0;
+let i = 0;
 
 export default class SimpleChild extends React.Component {
   constructor(props) {
-    console.log('SimpleChild - constructor()', arguments);
     super(props);
+    console.log(
+      'SimpleChild - constructor()',
+      arguments,
+      this.element
+    );
   }
 
   componentWillMount() {
-    console.log('SimpleChild - componentWillMount()', arguments);
-    console.log('SimpleChild - this.element', this.element);
+    console.log(
+      'SimpleChild - componentWillMount()',
+      arguments,
+      this.element
+    );
   }
 
   componentWillReceiveProps() {
-    console.log('SimpleChild - componentWillReceiveProps()', arguments);
-    console.log('SimpleChild - this.element', this.element);
+    console.log(
+      'SimpleChild - componentWillReceiveProps()',
+      arguments,
+      this.element
+    );
   }
 
   componentWillUpdate() {
-    console.log('SimpleChild - componentWillUpdate()', arguments);
-    console.log('SimpleChild - this.element', this.element);
+    console.log(
+      'SimpleChild - componentWillUpdate()',
+      arguments,
+      this.element
+    );
   }
 
   render() {
-    console.log('SimpleChild - render()', arguments);
+    console.log(
+      'SimpleChild - render()',
+      arguments,
+      this.element
+    );
     return (
       <div ref={(div) => { this.element = div; }}>
         SimpleChild, thing = {this.props.thing}
@@ -33,21 +50,30 @@ export default class SimpleChild extends React.Component {
   }
 
   componentDidMount() {
-    console.log('SimpleChild - componentDidMount()', arguments);
-    console.log('SimpleChild - this.element', this.element);
+    console.log(
+      'SimpleChild - componentDidMount()',
+      arguments,
+      this.element
+    );
     const div = document.createElement('div');
-    const text = document.createTextNode('SimpleChild rogue <div> ' + rogueCount++);
+    const text = document.createTextNode('SimpleChild rogue <div> ' + i++);
     div.appendChild(text);
     this.element.appendChild(div);
   }
 
   componentDidUpdate() {
-    console.log('SimpleChild - componentDidUpdate()', arguments);
-    console.log('SimpleChild - this.element', this.element);
+    console.log(
+      'SimpleChild - componentDidUpdate()',
+      arguments,
+      this.element
+    );
   }
 
   componentWillUnmount() {
-    console.log('SimpleChild - componentWillUnmount()', arguments);
-    console.log('SimpleChild - this.element', this.element);
+    console.log(
+      'SimpleChild - componentWillUnmount()',
+      arguments,
+      this.element
+    );
   }
 }
