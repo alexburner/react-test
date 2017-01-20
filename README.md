@@ -1,5 +1,9 @@
 # testing react component lifecycle & dom refs
 
+**demo: https://alexburner.github.io/react-test**
+
+*(click to toggle thing between A and B)*
+
 
 ## reading
 
