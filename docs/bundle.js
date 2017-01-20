@@ -106,9 +106,14 @@
 	      console.log('App - componentWillMount()', arguments);
 	    }
 	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      console.log('App - componentDidMount()', arguments);
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps() {
+	      console.log('App - componentWillReceiveProps()', arguments);
+	    }
+	  }, {
+	    key: 'componentWillUpdate',
+	    value: function componentWillUpdate() {
+	      console.log('App - componentWillUpdate()', arguments);
 	    }
 	  }, {
 	    key: 'render',
@@ -121,14 +126,9 @@
 	      );
 	    }
 	  }, {
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps() {
-	      console.log('App - componentWillReceiveProps()', arguments);
-	    }
-	  }, {
-	    key: 'componentWillUpdate',
-	    value: function componentWillUpdate() {
-	      console.log('App - componentWillUpdate()', arguments);
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      console.log('App - componentDidMount()', arguments);
 	    }
 	  }, {
 	    key: 'componentDidUpdate',
@@ -29444,9 +29444,14 @@
 	      console.log('Parent - componentWillMount()', arguments);
 	    }
 	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      console.log('Parent - componentDidMount()', arguments);
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps() {
+	      console.log('Parent - componentWillReceiveProps()', arguments);
+	    }
+	  }, {
+	    key: 'componentWillUpdate',
+	    value: function componentWillUpdate() {
+	      console.log('Parent - componentWillUpdate()', arguments);
 	    }
 	  }, {
 	    key: 'render',
@@ -29474,14 +29479,9 @@
 	      );
 	    }
 	  }, {
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps() {
-	      console.log('Parent - componentWillReceiveProps()', arguments);
-	    }
-	  }, {
-	    key: 'componentWillUpdate',
-	    value: function componentWillUpdate() {
-	      console.log('Parent - componentWillUpdate()', arguments);
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      console.log('Parent - componentDidMount()', arguments);
 	    }
 	  }, {
 	    key: 'componentDidUpdate',
@@ -29543,14 +29543,16 @@
 	      console.log('ConditionalChild - this.element', this.element);
 	    }
 	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      console.log('ConditionalChild - componentDidMount()', arguments);
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps() {
+	      console.log('ConditionalChild - componentWillReceiveProps()', arguments);
 	      console.log('ConditionalChild - this.element', this.element);
-	      var div = document.createElement('div');
-	      var text = document.createTextNode('ConditionalChild rogue <div> ' + rogueCount++);
-	      div.appendChild(text);
-	      this.element.appendChild(div);
+	    }
+	  }, {
+	    key: 'componentWillUpdate',
+	    value: function componentWillUpdate() {
+	      console.log('ConditionalChild - componentWillUpdate()', arguments);
+	      console.log('ConditionalChild - this.element', this.element);
 	    }
 	  }, {
 	    key: 'render',
@@ -29568,16 +29570,14 @@
 	      );
 	    }
 	  }, {
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps() {
-	      console.log('ConditionalChild - componentWillReceiveProps()', arguments);
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      console.log('ConditionalChild - componentDidMount()', arguments);
 	      console.log('ConditionalChild - this.element', this.element);
-	    }
-	  }, {
-	    key: 'componentWillUpdate',
-	    value: function componentWillUpdate() {
-	      console.log('ConditionalChild - componentWillUpdate()', arguments);
-	      console.log('ConditionalChild - this.element', this.element);
+	      var div = document.createElement('div');
+	      var text = document.createTextNode('ConditionalChild rogue <div> ' + rogueCount++);
+	      div.appendChild(text);
+	      this.element.appendChild(div);
 	    }
 	  }, {
 	    key: 'componentDidUpdate',
@@ -29641,14 +29641,16 @@
 	      console.log('SimpleChild - this.element', this.element);
 	    }
 	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      console.log('SimpleChild - componentDidMount()', arguments);
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps() {
+	      console.log('SimpleChild - componentWillReceiveProps()', arguments);
 	      console.log('SimpleChild - this.element', this.element);
-	      var div = document.createElement('div');
-	      var text = document.createTextNode('SimpleChild rogue <div> ' + rogueCount++);
-	      div.appendChild(text);
-	      this.element.appendChild(div);
+	    }
+	  }, {
+	    key: 'componentWillUpdate',
+	    value: function componentWillUpdate() {
+	      console.log('SimpleChild - componentWillUpdate()', arguments);
+	      console.log('SimpleChild - this.element', this.element);
 	    }
 	  }, {
 	    key: 'render',
@@ -29666,16 +29668,14 @@
 	      );
 	    }
 	  }, {
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps() {
-	      console.log('SimpleChild - componentWillReceiveProps()', arguments);
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      console.log('SimpleChild - componentDidMount()', arguments);
 	      console.log('SimpleChild - this.element', this.element);
-	    }
-	  }, {
-	    key: 'componentWillUpdate',
-	    value: function componentWillUpdate() {
-	      console.log('SimpleChild - componentWillUpdate()', arguments);
-	      console.log('SimpleChild - this.element', this.element);
+	      var div = document.createElement('div');
+	      var text = document.createTextNode('SimpleChild rogue <div> ' + rogueCount++);
+	      div.appendChild(text);
+	      this.element.appendChild(div);
 	    }
 	  }, {
 	    key: 'componentDidUpdate',

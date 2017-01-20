@@ -13,13 +13,14 @@ export default class ConditionalChild extends React.Component {
     console.log('ConditionalChild - this.element', this.element);
   }
 
-  componentDidMount() {
-    console.log('ConditionalChild - componentDidMount()', arguments);
+  componentWillReceiveProps() {
+    console.log('ConditionalChild - componentWillReceiveProps()', arguments);
     console.log('ConditionalChild - this.element', this.element);
-    const div = document.createElement('div');
-    const text = document.createTextNode('ConditionalChild rogue <div> ' + rogueCount++);
-    div.appendChild(text);
-    this.element.appendChild(div);
+  }
+
+  componentWillUpdate() {
+    console.log('ConditionalChild - componentWillUpdate()', arguments);
+    console.log('ConditionalChild - this.element', this.element);
   }
 
   render() {
@@ -31,14 +32,13 @@ export default class ConditionalChild extends React.Component {
     );
   }
 
-  componentWillReceiveProps() {
-    console.log('ConditionalChild - componentWillReceiveProps()', arguments);
+  componentDidMount() {
+    console.log('ConditionalChild - componentDidMount()', arguments);
     console.log('ConditionalChild - this.element', this.element);
-  }
-
-  componentWillUpdate() {
-    console.log('ConditionalChild - componentWillUpdate()', arguments);
-    console.log('ConditionalChild - this.element', this.element);
+    const div = document.createElement('div');
+    const text = document.createTextNode('ConditionalChild rogue <div> ' + rogueCount++);
+    div.appendChild(text);
+    this.element.appendChild(div);
   }
 
   componentDidUpdate() {

@@ -13,8 +13,12 @@ export default class Parent extends React.Component {
     console.log('Parent - componentWillMount()', arguments);
   }
 
-  componentDidMount() {
-    console.log('Parent - componentDidMount()', arguments);
+  componentWillReceiveProps() {
+    console.log('Parent - componentWillReceiveProps()', arguments);
+  }
+
+  componentWillUpdate() {
+    console.log('Parent - componentWillUpdate()', arguments);
   }
 
   render() {
@@ -35,12 +39,8 @@ export default class Parent extends React.Component {
     );
   }
 
-  componentWillReceiveProps() {
-    console.log('Parent - componentWillReceiveProps()', arguments);
-  }
-
-  componentWillUpdate() {
-    console.log('Parent - componentWillUpdate()', arguments);
+  componentDidMount() {
+    console.log('Parent - componentDidMount()', arguments);
   }
 
   componentDidUpdate() {

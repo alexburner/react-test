@@ -13,13 +13,14 @@ export default class SimpleChild extends React.Component {
     console.log('SimpleChild - this.element', this.element);
   }
 
-  componentDidMount() {
-    console.log('SimpleChild - componentDidMount()', arguments);
+  componentWillReceiveProps() {
+    console.log('SimpleChild - componentWillReceiveProps()', arguments);
     console.log('SimpleChild - this.element', this.element);
-    const div = document.createElement('div');
-    const text = document.createTextNode('SimpleChild rogue <div> ' + rogueCount++);
-    div.appendChild(text);
-    this.element.appendChild(div);
+  }
+
+  componentWillUpdate() {
+    console.log('SimpleChild - componentWillUpdate()', arguments);
+    console.log('SimpleChild - this.element', this.element);
   }
 
   render() {
@@ -31,14 +32,13 @@ export default class SimpleChild extends React.Component {
     );
   }
 
-  componentWillReceiveProps() {
-    console.log('SimpleChild - componentWillReceiveProps()', arguments);
+  componentDidMount() {
+    console.log('SimpleChild - componentDidMount()', arguments);
     console.log('SimpleChild - this.element', this.element);
-  }
-
-  componentWillUpdate() {
-    console.log('SimpleChild - componentWillUpdate()', arguments);
-    console.log('SimpleChild - this.element', this.element);
+    const div = document.createElement('div');
+    const text = document.createTextNode('SimpleChild rogue <div> ' + rogueCount++);
+    div.appendChild(text);
+    this.element.appendChild(div);
   }
 
   componentDidUpdate() {

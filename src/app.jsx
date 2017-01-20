@@ -30,8 +30,12 @@ class App extends React.Component {
     console.log('App - componentWillMount()', arguments);
   }
 
-  componentDidMount() {
-    console.log('App - componentDidMount()', arguments);
+  componentWillReceiveProps() {
+    console.log('App - componentWillReceiveProps()', arguments);
+  }
+
+  componentWillUpdate() {
+    console.log('App - componentWillUpdate()', arguments);
   }
 
   render() {
@@ -43,12 +47,8 @@ class App extends React.Component {
     );
   }
 
-  componentWillReceiveProps() {
-    console.log('App - componentWillReceiveProps()', arguments);
-  }
-
-  componentWillUpdate() {
-    console.log('App - componentWillUpdate()', arguments);
+  componentDidMount() {
+    console.log('App - componentDidMount()', arguments);
   }
 
   componentDidUpdate() {
