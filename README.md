@@ -12,6 +12,8 @@
 
 - dom refs = https://facebook.github.io/react/docs/refs-and-the-dom.html
 
+- unmount = https://facebook.github.io/react/blog/2015/10/01/react-render-and-top-level-api.html
+
 
 ## questions
 
